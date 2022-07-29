@@ -1,0 +1,87 @@
+<div class="h-screen flex justify-content-center">
+  <form
+    (ngSubmit)="submit()"
+    class="m-auto border-solid border-1 p-4 border-round-md border-400"
+    #myForm="ngForm"
+  >
+    <h1 class="text-center font-bold">register</h1>
+    <div class="p-field">
+      <label class="w-full font-bold" for="gmail">gmail:</label>
+      <input
+        id="gmail"
+        type="gmail"
+        class="p-inputtext w-full"
+        pInputText
+        [(ngModel)]="form.gmail"
+        placeholder="email address"
+        required
+        name="gmail"
+        #gmail="ngModel"
+      />
+    </div>
+    <div
+      *ngIf="gmail.invalid && (gmail.dirty || gmail.touched)"
+      class="mt-1 p-2 bg-red-300 text-red-800 border-round"
+    >
+      Email field must be valid
+    </div>
+    <div class="mt-2 mp-2">
+      <label for="password" class="font-bold">password:</label>
+      <input
+        id="password"
+        placeholder="password"
+        class="w-full p-inputtext"
+        [(ngModel)]="form.password"
+        type="password"
+        name="password"
+        required
+        #password="ngModel"
+      />
+    </div>
+    <div
+      *ngIf="password.invalid && (password.dirty || password.touched)"
+      class="mt-1 p-2 bg-red-300 text-red-800 border-round"
+    >
+      password field must be valid
+    </div>
+
+    <div class="mt-2 mp-2">
+      <label for="confirmPassword" class="font-bold">confirm password:</label>
+      <input
+        id="confirmPassword"
+        placeholder="confirm password"
+        class="w-full p-inputtext"
+        [(ngModel)]="form.confirm_password"
+        type="password"
+        name="confirm_password"
+        required
+        #confirm_password="ngModel"
+      />
+    </div>
+    <div
+      *ngIf="
+        confirm_password.invalid &&
+        (confirm_password.dirty || confirm_password.touched)
+      "
+      class="mt-1 p-2 bg-red-300 text-red-800 border-round"
+    >
+      confirm password field must be valid
+    </div>
+    <div
+      *ngIf="!exactly()"
+      class="mt-1 p-2 bg-red-300 text-red-800 border-round"
+    >
+      Authentication password is incorrect
+    </div>
+    <div class="mt-3">
+      <button
+        type="submit"
+        class="submit w-full p-3 font-semibold text-white border-1 border-round-md cursor-pointer"
+        [disabled]="myForm.form.invalid"
+      >
+        <ng-container *ngIf="load()"> loading... </ng-container>
+        <ng-container *ngIf="!load()">submit</ng-container>
+      </button>
+    </div>
+  </form>
+</div>

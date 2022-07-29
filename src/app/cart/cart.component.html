@@ -1,0 +1,9 @@
+<h2 >list learn</h2>
+<div *ngIf="getCart().length >0">
+    <ul *ngFor="let a of getCart()">
+        <li>
+            {{a.title}}
+        </li>
+    </ul>
+</div>
+<div class="" *ngIf="getCart().length ==0">empty list</div>

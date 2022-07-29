@@ -1,0 +1,10 @@
+<li class="flex ">
+    <img  src="{{book.src }}"/>
+    <div class="flex flex-wrap justify-content-center align-items-center">
+        <p class="w-full text-lg text-blue-800 font-bold text-center">{{book.title}}</p>
+    <div class="flex flex-wrap justify-content-center">
+        <button pButton  class="p-button-warning text-900 font-bold" *ngIf="notbook" (click)="listen(this.book)">learn</button>
+        <button  pButton class="p-button-warning text-900 font-bold "  *ngIf="!notbook" (click)="remove(this.book)">remove</button>
+    </div>
+    </div>
+</li>

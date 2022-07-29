@@ -1,0 +1,16 @@
+<nav class="bg-purple-900 font-bold text-lg">
+  <a routerLink="/">Book List</a>
+
+  <div>
+    <div *ngIf="!isAutheticated()">
+      <a class="ml-5" routerLink="/login">login</a>
+      <a class="ml-5" routerLink="/register">register</a>
+    </div>
+    <div *ngIf="isAutheticated()">
+      <a class="ml-5" routerLink="/cart">My Cart</a>
+      <a class="ml-5" (click)="logout()"> logout</a>
+    </div>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>
